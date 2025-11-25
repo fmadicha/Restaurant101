@@ -1,0 +1,407 @@
+:root {
+  --primary_color: #fc7f09;
+  --primary_color_light: #fffcfa;
+  --primary_color_dark: #db6e09;
+  --text_light: #6b7280;
+  --text_dark: #18181b;
+  --white: #ffffff;
+  --max_width: 1200px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.logo a {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary_color);
+}
+
+.logo a span {
+  color: var(--text_dark);
+}
+
+img {
+  display: flex;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s linear;
+}
+ul {
+  list-style: none;
+}
+
+/*navigation*/
+nav {
+  position: fixed;
+  isolation: isolate;
+  width: 100%;
+  z-index: 0;
+}
+
+.nav_header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--primary_color);
+}
+
+.nav_logo a {
+  color: var(--white);
+  display: flex;
+}
+
+.nav_menu_btn {
+  font-size: 1.5rem;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.nav_links {
+  position: absolute;
+  top: 68px;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: var(--primary_color_light);
+  transition: 0.5s;
+  z-index: -1;
+  transform: translateY(-100%);
+}
+.nav_links.open {
+  transform: translateY(0);
+}
+
+.nav_links a {
+  font-weight: 500;
+  color: var(--primary_color);
+}
+.nav_links a hover {
+  color: var(--text_dark);
+}
+
+.nav_menu_btn {
+  display: none;
+}
+
+/*nav responsiveness*/
+
+@media (width>768px) {
+  nav {
+    position: static;
+    padding: 2rem 1rem;
+    max-width: var(--max_width);
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .nav_header {
+    flex: 1;
+    padding: 0;
+    background-color: transparent;
+  }
+  .nav_logo a {
+    color: var(--primary_color);
+  }
+  .nav_menu_btn {
+    display: none;
+  }
+
+  .nav_links {
+    position: static;
+    padding: 0;
+    flex-direction: row;
+    background-color: transparent;
+    transform: none;
+  }
+
+  .nav_links a {
+    color: var(--text_dark);
+  }
+  .nav_links a:hover {
+    color: var(--primary_color);
+  }
+
+  .nav_btn {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+  }
+  .nav_btn .btn {
+    padding: 8px 10px;
+    font-size: 1.5rem;
+    border-radius: 100%;
+  }
+}
+
+/* header*/
+
+.header_container {
+  display: grid;
+  gap: 2rem;
+  overflow: hidden;
+}
+
+.header_image img {
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+.header_content h1 {
+  margin-bottom: 1rem;
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 4.5rem;
+  color: var(--text_dark);
+  text-align: center;
+}
+.header_content h1 span {
+  color: var(--primary_color);
+}
+.header_content .section_descriptin {
+  margin-bottom: 2rem;
+}
+
+.header_btn {
+  text-align: center;
+}
+
+/* header responsiveness*/
+@media (width>768px) {
+  .section_container {
+    min-width: var(--max_width);
+    margin: auto;
+    padding: 5rem 1rem;
+  }
+
+  .section_description {
+    color: var(--text_light);
+    line-height: 1.75rem;
+    text-align: center;
+  }
+  .btn {
+    padding: 0.75rem 1.5rem;
+    outline: none;
+    border: none;
+    white-space: nowrap;
+    font-size: 1rem;
+    color: var(--white);
+    background-color: var(--primary_color);
+    border-radius: 10px;
+    transition: 0.3;
+    cursor: pointer;
+  }
+
+  .header_container {
+    display: grid;
+    gap: 2rem;
+    overflow: hidden;
+  }
+  .header_image {
+    max-width: 600px;
+    margin-inline: auto;
+  }
+
+  .header_content h1 {
+    margin-bottom: 1rem;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 4.5rem;
+    color: var(--text_dark);
+    text-align: center;
+  }
+}
+
+.hero {
+  height: 40vh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+.contactUs {
+  flex: 1; /* Flex-grow: 1 makes it take up half the available space */
+  background-size: cover;
+  background-position: center;
+}
+.contact {
+  flex: 1;
+  background-image: url("5616586.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* The crucial overlay for text readability */
+.contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1); /* Semi-transparent black */
+  z-index: 1;
+}
+/* Ensure text content is above the overlay */
+.contact h1,
+.contact p {
+  position: relative;
+  z-index: 2;
+  --primary_color: #fc7f09;
+  padding-left: 20px;
+}
+
+/* Specific text styling */
+.contact h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.contact p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  padding: 0 2rem;
+  background-color: rgba(255, 255, 255, 0.1); /* Slight highlight behind text */
+  border-radius: 0.5rem;
+}
+
+/* Responsive: Stack vertically on small screens */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    height: auto;
+  }
+  .contactUs,
+  .contact {
+    height: 50vh; /* Set a height when stacked */
+  }
+  .contact h1 {
+    font-size: 2rem;
+  }
+  .contact p {
+    font-size: 1rem;
+  }
+}
+
+/* ContactForm*/
+
+.contactForm {
+  display: flex;
+  height: 30vh;
+  overflow: hidden;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.contact_form {
+  flex: 1;
+  padding: 1rem;
+  text-align: left;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.getInTouch {
+  flex: 1;
+  padding: 2rem;
+  text-align: left;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  background-color: #fcf6f3;
+  align-items: center;
+}
+.getInTouch h1 {
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.getInTouch button {
+  margin-top: 1rem;
+}
+/* General form and element styling */
+.label {
+  font-weight: 500;
+
+  color: #4a5568;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  transition: border-color 0.2s;
+}
+
+.form-control:focus {
+  border-color: #b57a70;
+  outline: none;
+  box-shadow: 0 0 0 1px #b57a70;
+}
+
+/* Button styling */
+.btn-primary {
+  background-color: #b57a70;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #9f6b5f;
+}
+
+/* Responsive: Stack vertically on small screens */
+@media (max-width: 768px) {
+  .contact-section {
+    flex-direction: column;
+    height: auto;
+  }
+  .form-wrapper,
+  .getInTouch {
+    padding: 2rem 1.5rem;
+  }
+}
+.sitemap {
+  display: flex;
+
+  border-radius: 1rem;
+}
